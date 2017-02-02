@@ -1,14 +1,17 @@
 const OFI = 'bfred-it:object-fit-images';
 const propRegex = /(object-fit|object-position)\s*:\s*([-\w\s%]+)/g;
 const testImg = new Image();
-const placeholder = document.createElement('canvas');
 const supportsObjectFit = 'object-fit' in testImg.style;
 const supportsObjectPosition = 'object-position' in testImg.style;
-const supportsOFI = 'background-size' in testImg.style && window.HTMLCanvasElement;
+const supportsOFI = 'background-size' in testImg.style;
 const supportsCurrentSrc = typeof testImg.currentSrc === 'string';
 const nativeGetAttribute = testImg.getAttribute;
 const nativeSetAttribute = testImg.setAttribute;
 let autoModeEnabled = false;
+
+function createPlaceholder(w, h) {
+	return `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='${w}' height='${h}'%3E%3C/svg%3E`;
+}
 
 function polyfillCurrentSrc(el) {
 	if (el.srcset && !supportsCurrentSrc && window.picturefill) {
@@ -41,13 +44,12 @@ function getStyle(el) {
 }
 
 function setPlaceholder(img, width, height) {
-	placeholder.width = width || 1;
-	placeholder.height = height || 1;
-	if (img[OFI].width !== placeholder.width || img[OFI].height !== placeholder.height) {
-		// cache size to avoid unnecessary changes
-		img[OFI].width = placeholder.width;
-		img[OFI].height = placeholder.height;
-		nativeSetAttribute.call(img, 'src', placeholder.toDataURL());
+	// Default: fill width, no height
+	const placeholder = createPlaceholder(width || 1, height || 0);
+
+	// Only set placeholder if it's different
+	if (nativeGetAttribute.call(img, 'src') !== placeholder) {
+		nativeSetAttribute.call(img, 'src', placeholder);
 	}
 }
 
