@@ -94,7 +94,9 @@ function fixOne(el) {
 		// preserve for any future cloneNode calls
 		// https://github.com/bfred-it/object-fit-images/issues/53
 		nativeSetAttribute.call(el, `data-ofi-src`, el.src);
-		nativeSetAttribute.call(el, `data-ofi-srcset`, el.srcset);
+		if (el.srcset) {
+			nativeSetAttribute.call(el, `data-ofi-srcset`, el.srcset);
+		}
 
 		setPlaceholder(el, el.naturalWidth || el.width, el.naturalHeight || el.height);
 
@@ -175,6 +177,7 @@ export default function fix(imgs, opts) {
 	const startAutoMode = !autoModeEnabled && !imgs;
 	opts = opts || {};
 	imgs = imgs || 'img';
+
 	if ((supportsObjectPosition && !opts.skipTest) || !supportsOFI) {
 		return false;
 	}
