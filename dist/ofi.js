@@ -5,14 +5,17 @@ var objectFitImages = (function () {
 var OFI = 'bfred-it:object-fit-images';
 var propRegex = /(object-fit|object-position)\s*:\s*([-\w\s%]+)/g;
 var testImg = new Image();
-var placeholder = document.createElement('canvas');
 var supportsObjectFit = 'object-fit' in testImg.style;
 var supportsObjectPosition = 'object-position' in testImg.style;
-var supportsOFI = 'background-size' in testImg.style && window.HTMLCanvasElement;
+var supportsOFI = 'background-size' in testImg.style;
 var supportsCurrentSrc = typeof testImg.currentSrc === 'string';
 var nativeGetAttribute = testImg.getAttribute;
 var nativeSetAttribute = testImg.setAttribute;
 var autoModeEnabled = false;
+
+function createPlaceholder(w, h) {
+	return ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='" + w + "' height='" + h + "'%3E%3C/svg%3E");
+}
 
 function polyfillCurrentSrc(el) {
 	if (el.srcset && !supportsCurrentSrc && window.picturefill) {
@@ -45,13 +48,12 @@ function getStyle(el) {
 }
 
 function setPlaceholder(img, width, height) {
-	placeholder.width = width || 1;
-	placeholder.height = height || 1;
-	if (img[OFI].width !== placeholder.width || img[OFI].height !== placeholder.height) {
-		// cache size to avoid unnecessary changes
-		img[OFI].width = placeholder.width;
-		img[OFI].height = placeholder.height;
-		nativeSetAttribute.call(img, 'src', placeholder.toDataURL());
+	// Default: fill width, no height
+	var placeholder = createPlaceholder(width || 1, height || 0);
+
+	// Only set placeholder if it's different
+	if (nativeGetAttribute.call(img, 'src') !== placeholder) {
+		nativeSetAttribute.call(img, 'src', placeholder);
 	}
 }
 
@@ -96,7 +98,9 @@ function fixOne(el) {
 		// preserve for any future cloneNode calls
 		// https://github.com/bfred-it/object-fit-images/issues/53
 		nativeSetAttribute.call(el, "data-ofi-src", el.src);
-		nativeSetAttribute.call(el, "data-ofi-srcset", el.srcset);
+		if (el.srcset) {
+			nativeSetAttribute.call(el, "data-ofi-srcset", el.srcset);
+		}
 
 		setPlaceholder(el, el.naturalWidth || el.width, el.naturalHeight || el.height);
 
@@ -177,6 +181,7 @@ function fix(imgs, opts) {
 	var startAutoMode = !autoModeEnabled && !imgs;
 	opts = opts || {};
 	imgs = imgs || 'img';
+
 	if ((supportsObjectPosition && !opts.skipTest) || !supportsOFI) {
 		return false;
 	}
