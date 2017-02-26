@@ -1,4 +1,4 @@
-/*! npm.im/object-fit-images 3.1.2 */
+/*! npm.im/object-fit-images 3.1.3 */
 var objectFitImages = (function () {
 'use strict';
 
