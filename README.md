@@ -122,6 +122,18 @@ objectFitImages('img.some-image', {watchMQ: true});
 
 ## Install
 
+Pick your favorite:
+
+```html
+<script src="dist/object-fit-images.min.js"></script>
+```
+
+```html
+<script src="https://cdnjs.cloudflare.com/ajax/libs/object-fit-images/VERSION/ofi.min.js"></script>
+<!-- Instead of VERSION you should specify exact version like 1.1.1 -->
+<!-- I suggest you concatenate JS files instead. OFI is only 1KB, HTTP requests are expensive -->
+```
+
 ```sh
 npm install --save object-fit-images
 ```
@@ -130,23 +142,15 @@ npm install --save object-fit-images
 var objectFitImages = require('object-fit-images');
 ```
 
-If you don't use browserify/webpack, include this instead:
-
-```html
-<script src="dist/ofi.min.js"></script>
+```js
+import objectFitImages from 'object-fit-images';
 ```
-
-or from the [unpkg.com](https://unpkg.com) CDN:
-
-```html
-<script src="https://unpkg.com/object-fit-images@VERSION/dist/ofi.min.js"></script>
-```
-
-Instead of `@VERSION` you should specify exact version like `@1.1.1`. The latest version is <img src="https://img.shields.io/npm/v/object-fit-images.svg?label=%20" height="16">
 
 ## API
 
-### `objectFitImages([images, [options]])`
+### `objectFitImages(images, options)`
+
+Both parameters are optional.
 
 <table>
     <tr>
