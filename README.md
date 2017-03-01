@@ -6,7 +6,7 @@
   [link-travis]: https://travis-ci.org/bfred-it/object-fit-images
   [link-npm]: https://www.npmjs.com/package/object-fit-images
 
-> Image polyfill for `object-fit` and `object-position` on IE9+, Edge, Safari, ...
+> 🗻 Polyfill object-fit/object-position on `<img>`: IE9, IE10, IE11, Edge, Safari, ...
 
 - Fast and lightweight ([demo](http://bfred-it.github.io/object-fit-images/demo/))
 - No additional elements are created
