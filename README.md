@@ -125,13 +125,9 @@ objectFitImages('img.some-image', {watchMQ: true});
 Pick your favorite:
 
 ```html
-<script src="dist/object-fit-images.min.js"></script>
-```
-
-```html
-<script src="https://cdnjs.cloudflare.com/ajax/libs/object-fit-images/VERSION/ofi.min.js"></script>
-<!-- Instead of VERSION you should specify exact version like 1.1.1 -->
-<!-- I suggest you concatenate JS files instead. OFI is only 1KB, HTTP requests are expensive -->
+<script src="dist/ofi.min.js"></script>
+<!-- CDN is also available, but I suggest you concatenate JS files instead -->
+<!-- Visit https://cdnjs.com/libraries/object-fit-images -->
 ```
 
 ```sh
