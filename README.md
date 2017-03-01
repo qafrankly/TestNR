@@ -1,20 +1,19 @@
-# object-fit-images
+# object-fit-images [![gzipped size][badge-gzip]](#no-link) [![Travis build status][badge-travis]][link-travis] [![npm version][badge-version]][link-npm]
 
-> Polyfill `object-fit` and `object-position` on images on IE9, IE10, IE11, Edge, Safari, ...
+  [badge-gzip]: https://badges.herokuapp.com/size/github/bfred-it/object-fit-images/master/dist/ofi.min.js?gzip=true&label=gzipped%20size
+  [badge-travis]: https://api.travis-ci.org/bfred-it/object-fit-images.svg
+  [badge-version]: https://img.shields.io/npm/v/object-fit-images.svg
+  [link-travis]: https://travis-ci.org/bfred-it/object-fit-images
+  [link-npm]: https://www.npmjs.com/package/object-fit-images
 
-[![gzipped size](https://badges.herokuapp.com/size/github/bfred-it/object-fit-images/master/dist/ofi.min.js?gzip=true&label=gzipped%20size)](#readme) [![Travis build status](https://api.travis-ci.org/bfred-it/object-fit-images.svg)](https://travis-ci.org/bfred-it/object-fit-images) [![npm version](https://img.shields.io/npm/v/object-fit-images.svg)](https://www.npmjs.com/package/object-fit-images) 
+> Image polyfill for `object-fit` and `object-position` on IE9+, Edge, Safari, ...
 
-This adds support for `object-fit` and `object-position` to **IEdge 9-13, Android < 5, Safari < 10** and skips browsers that already support them.
-
-Take a look at the [demo.](http://bfred-it.github.io/object-fit-images/demo/) 
-
-## Main features
-
-- Fast and lightweight
-- No additional elements are created or necessary
-- Once set, position is taken care by the browser
+- Fast and lightweight ([demo](http://bfred-it.github.io/object-fit-images/demo/))
+- No additional elements are created
+- Setup is done via CSS
+- Scaling is taken care by the browser (it uses `background-size`)
 - `srcset` support
-- You can still access/change `src` and `srcset` properties and attributes: `img.src = 'other-image.jpg'`
+- `src` and `srcset` properties and attributes keep working: `img.src = 'other-image.jpg'`
 
 ## Comparison table with alternative solutions
 
