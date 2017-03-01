@@ -15,23 +15,21 @@
 - `srcset` support
 - `src` and `srcset` properties and attributes keep working: `img.src = 'other-image.jpg'`
 
-## Comparison table with alternative solutions
-
-### Support
+## Alternative solutions
 
 
-                  | bfred-it<br>/object-fit-images🌟                                                                                         | [constancecchen<br>/object-fit-polyfill](https://github.com/constancecchen/object-fit-polyfill) | [tonipinel<br>/object-fit-polyfill](https://github.com/tonipinel/object-fit-polyfill) | [jonathantneal<br>/fitie](https://github.com/jonathantneal/fitie)
-:---              | :---                                                                                                      | :---                                                                                            | :---                                                                                  | :---
-Browsers          | <sub>IEdge 9-14, Android<5, Safari<10</sub>                                                                          | <- Same                                                                                         | "All browsers"                                                                        | IE 8-11
-Tags              | `img`                                                                                                     | `image` `video` `picture`                                                                     | `img`                                                                                 | `img` `video`
-`cover/contain`   | 💚                                                                                                         | 💚                                                                                               | 💚                                                                                     | 💚
-`fill`            | 💚                                                                                                         | 💚                                                                                               | 💚                                                                                     | 💚
-`none`            | 💚                                                                                                         | 💚                                                                                               | 💚                                                                                     | 💔
-`scale-down`      | 💚 <sub>using [`{watchMQ:true}`](#apply-on-resize)</sub>                                                             | 💚                                                                                               | 💔                                                                                     | 💔
-`object-position` | 💚                                                                                                         | 💚                                                                                               | 💔                                                                                     | 💔
-`srcset` support  | 💚 Native or [picturefill](https://github.com/scottjehl/picturefill) <sub>[notes](detailed-support-tables.md)</sub> | 💚                                                                                               | 💔                                                                                     | 💔
-Extra elements    | 💚 No                                                                                                      | 💔 Yes                                                                                           | 💔 Yes                                                                                 | 💔 Yes
-Settings    | 💚 via CSS                                                                                                      | 💔 via HTML                                                                                           | 💔 via HTML                                                                                 | 💔 via HTML
+                  | bfred-it<br>/object-fit-images🌟                                                                                         | [constancecchen<br>/object-fit-polyfill](https://github.com/constancecchen/object-fit-polyfill) | [tonipinel<br>/object-fit-polyfill](https://github.com/tonipinel/object-fit-polyfill)
+:---              | :---                                                                                                      | :---                                                                                            | :---
+Browsers          | <sub>IEdge 9-14, Android<5, Safari<10</sub>                                                                          | <- Same                                                                                         | "All browsers"
+Tags              | `img`                                                                                                     | `image` `video` `picture`                                                                     | `img`
+`cover/contain`   | 💚                                                                                                         | 💚                                                                                               | 💚
+`fill`            | 💚                                                                                                         | 💚                                                                                               | 💚
+`none`            | 💚                                                                                                         | 💚                                                                                               | 💚
+`scale-down`      | 💚 <sub>using [`{watchMQ:true}`](#apply-on-resize)</sub>                                                             | 💚                                                                                               | 💔
+`object-position` | 💚                                                                                                         | 💚                                                                                               | 💔
+`srcset` support  | 💚 Native or [picturefill](https://github.com/scottjehl/picturefill) <sub>[notes](detailed-support-tables.md)</sub> | 💚                                                                                               | 💔
+Extra elements    | 💚 No                                                                                                      | 💔 Yes                                                                                           | 💔 Yes
+Settings    | 💚 via CSS                                                                                                      | 💔 via HTML                                                                                           | 💔 via HTML
 
 
 ## Usage
