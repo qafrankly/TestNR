@@ -160,26 +160,21 @@ Both parameters are optional.
         <td>
             Type: <code>string</code>, <code>element</code>, <code>array</code>, <code>NodeList</code>, <code>null</code><br>
             Default: <code>null</code><br><br>
-
             The images to fix. More info in the <a href="#usage">Usage</a> section 
-
         </td>
     </tr>
     <tr>
         <th><code>options</code></th>
         <td>
-            
             Type: <code>object</code><br>
             Default: <code>{}</code><br>
             Example: <code>{watchMQ:true}</code><br><br>
-            
             <table>
                 <tr>
                     <th><code>watchMQ</code></th>
                     <td>
                         Type: <code>boolean</code><br>
-                        Default: <code>false</code>
-
+                        Default: <code>false</code><br><br>
                         This enables the automatic re-fix of the selected images when the window resizes. You only need it <a href="#apply-on-resize">in some cases</a>
                     </td>
                 </tr>
