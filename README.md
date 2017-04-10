@@ -38,13 +38,13 @@ Settings    | 💚 via CSS                                                      
 
 You will need 3 things
 
-0. one or more `<img>` elements with `src` or `srcset`  
+1. one or more `<img>` elements with `src` or `srcset`  
 
 	```html
 	<img class='your-favorite-image' src='image.jpg'>
 	```
 	
-0. CSS defining `object-fit` and a special `font-family` property to allow IE to read the correct value
+2. CSS defining `object-fit` and a special `font-family` property to allow IE to read the correct value
 
 	```css
 	.your-favorite-image {
@@ -67,7 +67,7 @@ You will need 3 things
 	
 	If you set the `font-family` via javascript (which must be followed by calling `objectFitImages()`), make sure to include the quotes [**in** the property.](https://github.com/bfred-it/object-fit-images/issues/29#issuecomment-227491892)
 
-0. <a name="activation"></a> the activation call before `</body>`, or _on DOM ready_
+3. <a name="activation"></a> the activation call before `</body>`, or _on DOM ready_
 
 	```js
 	objectFitImages();
