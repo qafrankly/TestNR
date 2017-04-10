@@ -20,8 +20,8 @@
 ## Alternative solutions
 
 
-                  | bfred-it<br>/object-fit-images🌟                                                                                         | [constancecchen<br>/object-fit-polyfill](https://github.com/constancecchen/object-fit-polyfill) | [tonipinel<br>/object-fit-polyfill](https://github.com/tonipinel/object-fit-polyfill)
-:---              | :---                                                                                                      | :---                                                                                            | :---
+Comparison           | bfred-it<br>/object-fit-images🌟                                                                                         | [constancecchen<br>/object-fit-polyfill](https://github.com/constancecchen/object-fit-polyfill) | [tonipinel<br>/object-fit-polyfill](https://github.com/tonipinel/object-fit-polyfill)
+---              | ---                                                                                                      | ---                                                                                            | ---
 Browsers          | <sub>IEdge 9-14, Android<5, Safari<10</sub>                                                                          | <- Same                                                                                         | "All browsers"
 Tags              | `img`                                                                                                     | `image` `video` `picture`                                                                     | `img`
 `cover/contain`   | 💚                                                                                                         | 💚                                                                                               | 💚
