@@ -108,7 +108,7 @@ function fixOne(el) {
 			keepSrcUsable(el);
 		} catch (err) {
 			if (window.console) {
-				console.log('http://bit.ly/ofi-old-browser');
+				console.warn('https://bit.ly/ofi-old-browser');
 			}
 		}
 	}
