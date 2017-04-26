@@ -1,4 +1,4 @@
-/*! npm.im/object-fit-images 3.2.0 */
+/*! npm.im/object-fit-images 3.2.1 */
 var objectFitImages = (function () {
 'use strict';
 
@@ -112,7 +112,7 @@ function fixOne(el) {
 			keepSrcUsable(el);
 		} catch (err) {
 			if (window.console) {
-				console.log('http://bit.ly/ofi-old-browser');
+				console.warn('https://bit.ly/ofi-old-browser');
 			}
 		}
 	}
@@ -122,6 +122,7 @@ function fixOne(el) {
 	el.style.backgroundImage = "url(\"" + ((ofi.img.currentSrc || ofi.img.src).replace(/"/g, '\\"')) + "\")";
 	el.style.backgroundPosition = style['object-position'] || 'center';
 	el.style.backgroundRepeat = 'no-repeat';
+	el.style.backgroundOrigin = 'content-box';
 
 	if (/scale-down/.test(style['object-fit'])) {
 		onImageReady(ofi.img, function () {
