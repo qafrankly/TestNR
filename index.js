@@ -118,6 +118,7 @@ function fixOne(el) {
 	el.style.backgroundImage = `url("${(ofi.img.currentSrc || ofi.img.src).replace(/"/g, '\\"')}")`;
 	el.style.backgroundPosition = style['object-position'] || 'center';
 	el.style.backgroundRepeat = 'no-repeat';
+	el.style.backgroundOrigin = 'content-box';
 
 	if (/scale-down/.test(style['object-fit'])) {
 		onImageReady(ofi.img, () => {
