@@ -1,4 +1,4 @@
-/*! npm.im/object-fit-images 3.2.1 */
+/*! npm.im/object-fit-images 3.2.2 */
 var objectFitImages = (function () {
 'use strict';
 
@@ -181,14 +181,15 @@ function hijackAttributes() {
 function fix(imgs, opts) {
 	var startAutoMode = !autoModeEnabled && !imgs;
 	opts = opts || {};
-	imgs = imgs || 'img';
 
 	if ((supportsObjectPosition && !opts.skipTest) || !supportsOFI) {
 		return false;
 	}
 
 	// use imgs as a selector or just select all images
-	if (typeof imgs === 'string') {
+	if (!imgs) {
+		imgs = document.getElementsByTagName('img');
+	} else if (typeof imgs === 'string') {
 		imgs = document.querySelectorAll(imgs);
 	} else if (!('length' in imgs)) {
 		imgs = [imgs];
