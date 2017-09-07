@@ -89,7 +89,10 @@ function fixOne(el) {
 	if (!ofi.img) {
 		ofi.img = new Image(el.width, el.height);
 		ofi.img.srcset = nativeGetAttribute.call(el, `data-ofi-srcset`) || el.srcset;
-		ofi.img.src = nativeGetAttribute.call(el, `data-ofi-src`) || el.src;
+		const src = nativeGetAttribute.call(el, `data-ofi-src`) || el.src;
+		if (src) {
+			ofi.img.src = src;
+		}
 
 		// preserve for any future cloneNode calls
 		// https://github.com/bfred-it/object-fit-images/issues/53
@@ -114,8 +117,10 @@ function fixOne(el) {
 	}
 
 	polyfillCurrentSrc(ofi.img);
-
-	el.style.backgroundImage = `url("${(ofi.img.currentSrc || ofi.img.src).replace(/"/g, '\\"')}")`;
+	const src = ofi.img.currentSrc || ofi.img.src;
+	if (src) {
+		el.style.backgroundImage = `url("${(ofi.img.currentSrc || ofi.img.src).replace(/"/g, '\\"')}")`;
+	}
 	el.style.backgroundPosition = style['object-position'] || 'center';
 	el.style.backgroundRepeat = 'no-repeat';
 	el.style.backgroundOrigin = 'content-box';
