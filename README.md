@@ -51,7 +51,7 @@ You will need 3 things
 	```css
 	.your-favorite-image {
 		object-fit: contain;
-		font-family: 'object-fit: contain;'
+		font-family: 'object-fit: contain;';
 	}
 	```
 	
@@ -61,7 +61,7 @@ You will need 3 things
 	.your-favorite-image {
 		object-fit: cover;
 		object-position: bottom;
-		font-family: 'object-fit: cover; object-position: bottom;'
+		font-family: 'object-fit: cover; object-position: bottom;';
 	}
 	```
 	
@@ -113,8 +113,8 @@ You don't need to re-apply it on `resize`, unless:
 * <a id="media-query-affects-object-fit-value">your media queries change the value of `object-fit`,</a> like this
 
 	```css
-	                            img { object-fit: cover }
-	@media (max-width: 500px) { img { object-fit: contain } }
+	                            img { object-fit: cover; }
+	@media (max-width: 500px) { img { object-fit: contain; } }
 	```
 
 In one of those cases, use the `watchMQ` option:
